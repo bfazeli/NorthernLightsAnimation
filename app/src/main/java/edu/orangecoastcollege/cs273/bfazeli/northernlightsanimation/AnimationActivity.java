@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 public class AnimationActivity extends AppCompatActivity {
@@ -32,8 +33,22 @@ public class AnimationActivity extends AppCompatActivity {
         // 2) Associate the frameAnim with the animation in XML
         frameAnim = (AnimationDrawable) lightsImageView.getBackground();
 
-        // 3) Start the frame animation
-        frameAnim.start();
+        // 3) Check to see if it's running and stop the frameAnim
+        if (frameAnim.isRunning()) frameAnim.stop();
+        else frameAnim.start();  // 4) Start the frame animation
 
+    }
+
+    public void toggleRotateAnim(View view) {
+        // If the rotation has started, stop it by clearing it
+        // Else, start the animation.
+        if (rotateAnim != null && rotateAnim.hasStarted()) {
+            lightsImageView.clearAnimation();
+            rotateAnim = null;
+        }
+        else {
+            rotateAnim = AnimationUtils.loadAnimation(this, R.anim.rotate_anim);
+            lightsImageView.startAnimation(rotateAnim);
+        }
     }
 }

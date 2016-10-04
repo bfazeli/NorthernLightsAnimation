@@ -35,7 +35,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:id="@+id/rotateAnimButton"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:onClick="toggleRotateAnim" />
 
     <Button
         android:text="@string/shake_anim_button_text"
