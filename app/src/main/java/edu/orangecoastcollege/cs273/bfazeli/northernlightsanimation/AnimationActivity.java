@@ -51,4 +51,20 @@ public class AnimationActivity extends AppCompatActivity {
             lightsImageView.startAnimation(rotateAnim);
         }
     }
+
+    public void toggleShakeAnim(View view) {
+        // If the rotation has started, stop it by clearing it
+        // Else, start the animation.
+        if (shakeAnim != null && shakeAnim.hasEnded()) {
+            lightsImageView.startAnimation(shakeAnim);
+        }
+        else if (shakeAnim != null && shakeAnim.hasStarted()) {
+            lightsImageView.clearAnimation();
+            shakeAnim = null;
+        }
+        else {
+            shakeAnim = AnimationUtils.loadAnimation(this, R.anim.shake_anim);
+            lightsImageView.startAnimation(shakeAnim);
+        }
+    }
 }
