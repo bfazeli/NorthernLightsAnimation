@@ -47,9 +47,12 @@
         android:onClick="toggleShakeAnim" />
 
     <Button
-        android:text="@string/flip_anim_button_text"
+        android:text="@string/trans_out_anim_button_text"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:id="@+id/flipAnimButton"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:onClick="toggleCustomAnim"
+        android:linksClickable="false"
+        android:id="@+id/spaceOutAnimButton"
+        android:elevation="9dp"/>
 </LinearLayout>

@@ -67,4 +67,18 @@ public class AnimationActivity extends AppCompatActivity {
             lightsImageView.startAnimation(shakeAnim);
         }
     }
+
+    public void toggleCustomAnim(View view) {
+        if (customAnim != null && customAnim.hasEnded()) {
+            lightsImageView.startAnimation(customAnim);
+        }
+        else if (customAnim != null && customAnim.hasStarted()) {
+            lightsImageView.clearAnimation();
+            customAnim = null;
+        }
+        else {
+            customAnim = AnimationUtils.loadAnimation(this, R.anim.custom_anim);
+            lightsImageView.startAnimation(customAnim);
+        }
+    }
 }
